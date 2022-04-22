@@ -1,0 +1,48 @@
+body {
+  display: grid;
+  place-items: center;
+  height: 97vh;
+  background: #d4ccff;
+}
+
+#cb {
+  display: none;
+  pointer-events: none;
+}
+
+#cb:checked + label {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.945);
+  background: #beb3ff;
+}
+
+#cb:checked + label svg {
+  stroke-dashoffset: 3;
+  opacity: 1;
+}
+
+label {
+  width: 150px;
+  height: 150px;
+  background: transparent;
+  border: 6px solid #191919;
+  transition-delay: 150ms;
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+label svg {
+  opacity: 0.2;
+  padding: 1.5rem;
+  stroke: rgba(255, 255, 255, 0.945);
+  fill: transparent;
+  stroke-dasharray: 130;
+  stroke-dashoffset: 130;
+  transition: all 0.3s ease-in-out;
+}
+/*# sourceMappingURL=index.css.map */

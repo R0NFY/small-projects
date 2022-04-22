@@ -1,0 +1,99 @@
+/* Basic resets */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --heart__default--color: #FFF;
+    --heart__active--color: #EA4F3D;
+    --btn-bg: #353535;
+
+    /* Modify next line to increase or decrease the size of button */
+    --btn-size: 100px;
+}
+
+/* To place the heart in the middle of the screen */
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+/* Round heart container */
+.btn {
+    background-color: var(--btn-bg);
+    height: var(--btn-size);
+    width: var(--btn-size);
+    border-radius: 50%;
+    position: relative;
+}
+
+/* To display and position pseudo-elements */
+.heart {
+    width: inherit;
+    height: inherit;
+    position: relative;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+/* Fade out animation for the heart */
+.animated {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    animation: fadeout .6s ease-out;
+}
+
+/* To override the default white color of the heart for animated element */
+.animated::before,
+.animated::after {
+    background: var(--heart__active--color) !important;
+}
+
+/* Shape of the heart */
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    background: var(--heart__default--color);
+    width: 20%;
+    height: 33%;
+    border-radius: var(--btn-size) var(--btn-size) 0 0;
+    transform-origin: bottom left;
+    /* offset in 6% from top is important to create an illusion that heart is centered. Try to remove it. */
+    transform: translate(50%, 6%) rotate(-45deg);
+}
+
+.heart::before {
+    transform-origin: bottom right;
+    transform: translate(-50%, 6%) rotate(45deg);
+}
+
+.pressed {
+    animation: pressed .3s ease-in-out alternate;
+}
+
+@keyframes pressed {
+    10% {
+        transform: scale(115%);
+    }
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.2%;
+        transform: translateY(-100%) scale(1.5);
+        -webkit-transform: translateY(-100%) scale(1.5);
+    }
+}
+
+/* Inspired by Unsplash like button */

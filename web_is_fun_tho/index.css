@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  font-family: "Satoshi";
+  height: 275vh;
+}
+
+h1 {
+  margin: 0;
+  font-size: 18vw;
+  line-height: 0.9;
+  font-variation-settings: "wght" 650;
+  letter-spacing: -0.03em;
+  max-width: max-content;
+  margin-top: 8rem;
+  right: 30%;
+  position: fixed;
+}
+
+h1 > span > span {
+  display: inline-block;
+}
+
+img {
+  position: fixed;
+  transform: translate(80vw, 37vw) scale(0.15, 0.15);
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: top left;
+}
